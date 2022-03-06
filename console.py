@@ -39,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
                 dict = storage.all()
                 del dict[args[0] + "." + check.id]
                 return True
-            except:
+            except Exception:
                 print("** class doesn't exist **")
                 return False
 
@@ -117,10 +117,11 @@ class HBNBCommand(cmd.Cmd):
             class_id = args_sp[0] + "." + args_sp[1]
             attribute = args_sp[2]
             upd_instance = storage.all().get(class_id)
+            upd_attr = ""
             try:
                 upd_attr = getattr(upd_instance, attribute)
-            except:
-                upd_attr = ""
+            except Exception:
+                pass
             type_attr = type(upd_attr)
             setattr(upd_instance, attribute, type_attr(args_sp[3]))
             upd_instance.save()
