@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """ class Base model for AirBnB clone """
-
-
 import models
 from uuid import uuid4
 from datetime import datetime
 
 
 class BaseModel:
-    """ Base model to inherit from """
+    """
+    Base model to inherit from
+    """
 
     def __init__(self, *args, **kwargs):
         """ Object atributes """
-
         if len(kwargs) == 0:
             self.id = str(uuid4())
             self.created_at = datetime.now()
