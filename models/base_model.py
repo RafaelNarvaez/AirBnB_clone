@@ -12,6 +12,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """ Object atributes """
+
         if len(kwargs) == 0:
             self.id = str(uuid4())
             self.created_at = datetime.now()
